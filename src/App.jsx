@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
 import AppLayout from "./pages/AppLayout";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/Login";
@@ -40,13 +41,16 @@ const App = () => {
         <Route path="/app" element={<AppLayout />}>
           <Route
             index
-            element={<CityList cities={cities} isLoading={isLoading}/>}
+            element={<CityList cities={cities} isLoading={isLoading} />}
           />
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="countries" element={<p>List of countries</p>} />
+          <Route
+            path="countries"
+            element={<CountryList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
